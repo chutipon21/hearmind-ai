@@ -15,34 +15,34 @@ import {
   deleteLessonFromCloud
 } from './lib/storage';
 
-// Public chat URL for the published HearMind AI v4 agent on LangMind.
+// Public chat URL for the published agent on LangMind.
 // If the public link changes, update this one constant. Do not put API keys here.
 const LANGMIND_AGENT_URL = 'https://langmind.in.th/public/agents/44ca28a5-abd9-46da-88cb-814eb6866f7c/chat';
 
 function IconLogo(){return <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-600 text-white shadow-lg shadow-teal-600/20"><AudioLines size={24}/></span>}
-const nav=[{to:'/',icon:Home,label:'ภาพรวม'},{to:'/live',icon:Radio,label:'คำบรรยายสด'},{to:'/classroom',icon:GraduationCap,label:'ห้องเรียนออนไลน์'},{to:'/personal',icon:Headphones,label:'ไมโครโฟนส่วนตัว'},{to:'/lessons',icon:BookOpen,label:'บทเรียนของฉัน'},{to:'/agent',icon:Sparkles,label:'ผู้ช่วย AI · LANGMIND'},{to:'/settings',icon:Settings,label:'ตั้งค่า'}];
-function Shell({children,theme,setTheme}:{children:React.ReactNode,theme:Theme,setTheme:(t:Theme)=>void}){const [menu,setMenu]=useState(false);return <div className="min-h-screen bg-[#f6f9fc] text-slate-900 transition-colors dark:bg-[#101827] dark:text-slate-100"><aside className={`fixed inset-y-0 left-0 z-40 w-72 border-r border-slate-200 bg-white p-5 transition-transform dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0 ${menu?'translate-x-0':'-translate-x-full'}`}><div className="mb-10 flex items-center justify-between"><NavLink to="/" onClick={()=>setMenu(false)} className="flex items-center gap-3"><IconLogo/><span><strong className="block text-xl leading-tight">HearMind <span className="text-teal-600">AI</span></strong><span className="text-xs text-slate-500">Learning without barriers</span></span></NavLink><button aria-label="ปิดเมนู" className="lg:hidden" onClick={()=>setMenu(false)}><X/></button></div><div className="mb-3 px-3 text-xs font-bold uppercase tracking-widest text-slate-400">เมนูหลัก</div><nav className="space-y-1">{nav.map(({to,icon:Icon,label})=><NavLink key={to} to={to} onClick={()=>setMenu(false)} end={to==='/'} className={({isActive})=>`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition ${isActive?'bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300':'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'}`}><Icon size={19}/>{label}</NavLink>)}</nav></aside>{menu&&<button aria-label="ปิดเมนู" className="fixed inset-0 z-30 bg-black/40 lg:hidden" onClick={()=>setMenu(false)}/>}<div className="lg:pl-72"><header className="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-slate-200 bg-white/90 px-5 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 md:px-10"><div className="flex items-center gap-3"><button aria-label="เปิดเมนู" onClick={()=>setMenu(true)} className="rounded-lg p-2 lg:hidden"><Menu/></button><div><div className="text-sm font-bold md:text-base">HearMind AI</div><div className="text-xs text-slate-500">พื้นที่การเรียนรู้ที่เข้าถึงได้สำหรับทุกคน</div></div></div><div className="flex items-center gap-2"><span className="hidden rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 sm:inline">DEMO VERSION</span><button aria-label="สลับธีม" title="สลับธีม" className="btn-outline !p-2.5" onClick={()=>setTheme(theme==='dark'?'light':'dark')}>{theme==='dark'?<Sun size={18}/>:<Moon size={18}/>}</button></div></header><main className="mx-auto max-w-7xl p-5 md:p-10">{children}</main><footer className="mx-auto max-w-7xl px-5 pb-8 text-xs text-slate-400 md:px-10">HearMind AI © 2026 · ต้นแบบเพื่อการศึกษา · ไม่ใช่บริการล่ามภาษามือ</footer></div></div>}
+const nav=[{to:'/',icon:Home,label:'ภาพรวม'},{to:'/live',icon:Radio,label:'คำบรรยายสด'},{to:'/classroom',icon:GraduationCap,label:'ห้องเรียนออนไลน์'},{to:'/personal',icon:Headphones,label:'ไมโครโฟนส่วนตัว'},{to:'/lessons',icon:BookOpen,label:'บทเรียนของฉัน'},{to:'/agent',icon:Sparkles,label:'ผู้ช่วย AI · LangMind AI'},{to:'/settings',icon:Settings,label:'ตั้งค่า'}];
+function Shell({children,theme,setTheme}:{children:React.ReactNode,theme:Theme,setTheme:(t:Theme)=>void}){const [menu,setMenu]=useState(false);return <div className="min-h-screen bg-[#f6f9fc] text-slate-900 transition-colors dark:bg-[#101827] dark:text-slate-100"><aside className={`fixed inset-y-0 left-0 z-40 w-72 border-r border-slate-200 bg-white p-5 transition-transform dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0 ${menu?'translate-x-0':'-translate-x-full'}`}><div className="mb-10 flex items-center justify-between"><NavLink to="/" onClick={()=>setMenu(false)} className="flex items-center gap-3"><IconLogo/><span><strong className="block text-xl leading-tight">HearMind <span className="text-teal-600">AI</span></strong><span className="text-xs text-slate-500">Learning without barriers</span></span></NavLink><button aria-label="ปิดเมนู" className="lg:hidden" onClick={()=>setMenu(false)}><X/></button></div><div className="mb-3 px-3 text-xs font-bold uppercase tracking-widest text-slate-400">เมนูหลัก</div><nav className="space-y-1">{nav.map(({to,icon:Icon,label})=><NavLink key={to} to={to} onClick={()=>setMenu(false)} end={to==='/'} className={({isActive})=>`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition ${isActive?'bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300':'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'}`}><Icon size={19}/>{label}</NavLink>)}</nav></aside>{menu&&<button aria-label="ปิดเมนู" className="fixed inset-0 z-30 bg-black/40 lg:hidden" onClick={()=>setMenu(false)}/>}<div className="lg:pl-72"><header className="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-slate-200 bg-white/90 px-5 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 md:px-10"><div className="flex items-center gap-3"><button aria-label="เปิดเมนู" onClick={()=>setMenu(true)} className="rounded-lg p-2 lg:hidden"><Menu/></button><div><div className="text-sm font-bold md:text-base">HearMind AI</div><div className="text-xs text-slate-500">พื้นที่การเรียนรู้ที่เข้าถึงได้สำหรับทุกคน</div></div></div><div className="flex items-center gap-2"><button aria-label="สลับธีม" title="สลับธีม" className="btn-outline !p-2.5" onClick={()=>setTheme(theme==='dark'?'light':'dark')}>{theme==='dark'?<Sun size={18}/>:<Moon size={18}/>}</button></div></header><main className="mx-auto max-w-7xl p-5 md:p-10">{children}</main><footer className="mx-auto max-w-7xl px-5 pb-8 text-xs text-slate-400 md:px-10">HearMind AI © 2026 · เพื่อการศึกษา · ไม่ใช่บริการล่ามภาษามือ</footer></div></div>}
 function Title({eyebrow,title,description}:{eyebrow:string,title:string,description:string}){return <div className="mb-8"><div className="mb-2 text-xs font-bold uppercase tracking-widest text-teal-600">{eyebrow}</div><h1 className="section-title mb-2">{title}</h1><p className="max-w-2xl text-sm leading-7 text-slate-500 dark:text-slate-400">{description}</p></div>}
-function Dashboard(){const navigate=useNavigate();const lessons=loadLessons();return <><div className="relative mb-7 overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f766e] via-[#0d9488] to-[#155e75] p-7 text-white md:p-10"><div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border-[45px] border-white/10"/><div className="relative max-w-2xl"><span className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold"><Activity size={14}/> Accessible Learning Platform</span><h1 className="mb-3 text-3xl font-extrabold leading-snug md:text-4xl">ทุกเสียงในห้องเรียน<br/>ควรเข้าถึงได้</h1><p className="mb-7 max-w-xl text-sm leading-7 text-white/85">แปลงเสียงบรรยายภาษาไทยเป็นข้อความแบบต่อเนื่อง เพื่อช่วยให้นักศึกษาติดตามเนื้อหาและทบทวนบทเรียนได้สะดวกขึ้น</p><button className="btn bg-white text-teal-800 hover:bg-teal-50" onClick={()=>navigate('/live')}>เริ่มคำบรรยายสด <ArrowRight size={17}/></button><a className="ml-0 mt-3 inline-flex items-center gap-2 rounded-xl border border-white/50 bg-white/15 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/25 sm:ml-3 sm:mt-0" href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer"><Sparkles size={17}/>เรียนรู้ต่อด้วย LANGMIND AI <ExternalLink size={16}/></a></div></div><LangMindSpotlight/><button className="btn-primary mb-7" onClick={()=>navigate('/classroom')}>เข้าห้องเรียนออนไลน์ <ArrowRight size={17}/></button><div className="mb-7 grid gap-4 md:grid-cols-3"><Metric icon={Radio}value="ภาษาไทย"label="การรู้จำเสียง th-TH"/><Metric icon={BookOpen}value={String(lessons.length)}label="บทเรียนที่บันทึกในเครื่อง"/><Metric icon={ShieldCheck}value="Local"label="บทเรียนในเครื่อง + ห้องเรียนออนไลน์"/></div><div className="mb-5 flex items-center justify-between"><h2 className="text-lg font-bold">เริ่มต้นใช้งาน</h2><span className="text-xs text-slate-400">เลือกโหมดที่เหมาะกับคุณ</span></div><div className="grid gap-5 md:grid-cols-2"><ActionCard icon={GraduationCap}title="โหมดอาจารย์"tag="Teacher Mode"description="เปิดไมโครโฟนของอาจารย์เพื่อทดลองแปลงคำบรรยายเป็นข้อความบนอุปกรณ์นี้"button="เปิดคำบรรยายสด"onClick={()=>navigate('/live')}/><ActionCard icon={Headphones}title="โหมดนักศึกษา"tag="Student Mode"description="เปิดไมโครโฟนบนอุปกรณ์ของนักศึกษาเพื่อรับฟังเสียงรอบตัวและแสดงคำบรรยายส่วนตัว"button="เริ่มไมโครโฟนส่วนตัว"onClick={()=>navigate('/personal')}/></div><div className="panel mt-7 flex gap-3 p-5"><Info className="mt-0.5 shrink-0 text-teal-600" size={20}/><div><div className="mb-1 font-bold">เกี่ยวกับระบบคำบรรยาย</div><p className="text-sm leading-7 text-slate-500 dark:text-slate-400">คำบรรยายสดและไมโครโฟนส่วนตัวทำงานบนอุปกรณ์ปัจจุบัน ส่วนห้องเรียนออนไลน์ใช้ Supabase ส่งข้อความข้ามอุปกรณ์ และหน้า AI ใช้ LANGMIND ผ่าน Edge Function</p></div></div></>}
+function Dashboard(){const navigate=useNavigate();const lessons=loadLessons();return <><div className="relative mb-7 overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f766e] via-[#0d9488] to-[#155e75] p-7 text-white md:p-10"><div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border-[45px] border-white/10"/><div className="relative max-w-2xl"><span className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold"><Activity size={14}/> Accessible Learning Platform</span><h1 className="mb-3 text-3xl font-extrabold leading-snug md:text-4xl">ทุกเสียงในห้องเรียน<br/>ควรเข้าถึงได้</h1><p className="mb-7 max-w-xl text-sm leading-7 text-white/85">แปลงเสียงบรรยายภาษาไทยเป็นข้อความแบบต่อเนื่อง เพื่อช่วยให้นักศึกษาติดตามเนื้อหาและทบทวนบทเรียนได้สะดวกขึ้น</p><button className="btn bg-white text-teal-800 hover:bg-teal-50" onClick={()=>navigate('/live')}>เริ่มคำบรรยายสด <ArrowRight size={17}/></button><a className="ml-0 mt-3 inline-flex items-center gap-2 rounded-xl border border-white/50 bg-white/15 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/25 sm:ml-3 sm:mt-0" href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer"><Sparkles size={17}/>เรียนรู้ต่อด้วย LangMind AI <ExternalLink size={16}/></a></div></div><LangMindSpotlight/><button className="btn-primary mb-7" onClick={()=>navigate('/classroom')}>เข้าห้องเรียนออนไลน์ <ArrowRight size={17}/></button><div className="mb-7 grid gap-4 md:grid-cols-3"><Metric icon={Radio}value="ภาษาไทย"label="การรู้จำเสียง th-TH"/><Metric icon={BookOpen}value={String(lessons.length)}label="บทเรียนที่บันทึกในเครื่อง"/><Metric icon={ShieldCheck}value="Local"label="บทเรียนในเครื่อง + ห้องเรียนออนไลน์"/></div><div className="mb-5 flex items-center justify-between"><h2 className="text-lg font-bold">เริ่มต้นใช้งาน</h2><span className="text-xs text-slate-400">เลือกโหมดที่เหมาะกับคุณ</span></div><div className="grid gap-5 md:grid-cols-2"><ActionCard icon={GraduationCap}title="โหมดอาจารย์"tag="Teacher Mode"description="เปิดไมโครโฟนของอาจารย์เพื่อทดลองแปลงคำบรรยายเป็นข้อความบนอุปกรณ์นี้"button="เปิดคำบรรยายสด"onClick={()=>navigate('/live')}/><ActionCard icon={Headphones}title="โหมดนักศึกษา"tag="Student Mode"description="เปิดไมโครโฟนบนอุปกรณ์ของนักศึกษาเพื่อรับฟังเสียงรอบตัวและแสดงคำบรรยายส่วนตัว"button="เริ่มไมโครโฟนส่วนตัว"onClick={()=>navigate('/personal')}/></div><div className="panel mt-7 flex gap-3 p-5"><Info className="mt-0.5 shrink-0 text-teal-600" size={20}/><div><div className="mb-1 font-bold">เกี่ยวกับระบบคำบรรยาย</div><p className="text-sm leading-7 text-slate-500 dark:text-slate-400">คำบรรยายสดและไมโครโฟนส่วนตัวทำงานบนอุปกรณ์ปัจจุบัน ส่วนห้องเรียนออนไลน์ใช้ Supabase ส่งข้อความข้ามอุปกรณ์ และหน้า AI ใช้ LANGMIND ผ่าน Edge Function</p></div></div></>}
 
 // The public LangMind link is kept as an optional way to open the provider chat.
 function LangMindSpotlight() {
   const navigate = useNavigate();
-  return <section aria-label="LANGMIND AI Agent" className="panel relative mb-6 overflow-hidden border-teal-200 p-6 dark:border-teal-800 md:p-7">
+  return <section aria-label="LangMind AI ผู้ช่วยการเรียนรู้" className="panel relative mb-6 overflow-hidden border-teal-200 p-6 dark:border-teal-800 md:p-7">
     <div className="absolute right-0 top-0 h-32 w-32 translate-x-10 -translate-y-12 rounded-full border-[28px] border-teal-50 dark:border-teal-900/40" aria-hidden="true"/>
     <div className="relative flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
       <div className="flex min-w-0 items-start gap-4">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#153c5b] text-white"><Sparkles size={24}/></span>
         <div>
-          <div className="mb-1 text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-300">AI LEARNING ASSISTANT · LANGMIND AGENT STUDIO</div>
-          <h2 className="text-xl font-extrabold md:text-2xl">HearMind AI Agent <span className="text-teal-700 dark:text-teal-300">v4</span></h2>
-          <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">ช่วยสรุป อธิบาย และสร้างคำถามทบทวนจากบทเรียนผ่าน LANGMIND API โดยสนทนาภายในเว็บไซต์ HearMind AI ได้</p>
+          <div className="mb-1 text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-300">AI LEARNING ASSISTANT · POWERED BY LANGMIND</div>
+          <h2 className="text-xl font-extrabold md:text-2xl">LangMind AI</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">ผู้ช่วยการเรียนรู้จาก LangMind AI สำหรับสรุป อธิบาย และสร้างคำถามทบทวนจากบทเรียน โดยใช้งานได้ภายในเว็บไซต์ HearMind AI</p>
           <p className="mt-1 text-xs leading-6 text-slate-500 dark:text-slate-400">เชื่อมผ่าน Supabase Edge Function · รองรับการสนทนาต่อเนื่องในแท็บที่เปิดใช้งาน</p>
         </div>
       </div>
       <div className="flex shrink-0 flex-wrap items-center gap-2">
-        <button type="button" className="btn-primary" onClick={()=>navigate('/agent')}><MessageCircle size={17}/>แชทกับ HearMind AI</button>
-        <a className="btn-outline" href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer"><ExternalLink size={17}/>เปิดบน LANGMIND</a>
+        <button type="button" className="btn-primary" onClick={()=>navigate('/agent')}><MessageCircle size={17}/>แชทกับ LangMind AI</button>
+        <a className="btn-outline" href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer"><ExternalLink size={17}/>เปิดบน LangMind</a>
       </div>
     </div>
   </section>;
@@ -100,7 +100,7 @@ function LangMindAgentPage() {
       setLessonTitle(typeof state.lessonTitle === 'string' ? state.lessonTitle : '');
       setMessages([]);
       setConversation(null);
-      setNotice('นำเข้าบทเรียนแล้ว เลือกรูปแบบความช่วยเหลือแล้วกด “ส่งบทเรียนให้ AI”');
+      setNotice('นำเข้าบทเรียนแล้ว เลือกรูปแบบความช่วยเหลือแล้วกด “ส่งบทเรียนให้ LangMind AI”');
     }
   }, [location.key]);
 
@@ -196,24 +196,24 @@ function LangMindAgentPage() {
   };
 
   return <>
-    <Title eyebrow="LANGMIND AI · INTEGRATED CHAT" title="ผู้ช่วยการเรียนรู้ HearMind AI" description="สนทนากับ HearMind AI Agent ผ่านเว็บไซต์ได้โดยตรง สรุปบทเรียน อธิบายเรื่องที่ยาก และถามต่อเนื่องโดยไม่ต้องเปิดแท็บใหม่"/>
+    <Title eyebrow="LANGMIND AI · LEARNING ASSISTANT" title="ผู้ช่วยการเรียนรู้ด้วย LangMind AI" description="สนทนากับ LangMind AI ภายในเว็บไซต์ HearMind AI ได้โดยตรง เพื่อสรุปบทเรียน อธิบายเรื่องที่ยาก และถามต่อเนื่องโดยไม่ต้องเปิดแท็บใหม่"/>
     <section className="mb-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#142d49] via-[#17466b] to-[#0f766e] p-6 text-white md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-5">
         <div className="flex items-start gap-4">
           <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15"><BrainCircuit size={29}/></span>
           <div>
-            <p className="mb-1 text-xs font-bold uppercase tracking-widest text-teal-100">LANGMIND AGENT STUDIO</p>
-            <h2 className="text-2xl font-extrabold">HearMind AI · Agent v4</h2>
-            <p className="mt-2 max-w-xl text-sm leading-7 text-white/85">เชื่อม LANGMIND API ผ่าน Supabase Edge Function โดยไม่เปิดเผย API Key ในเบราว์เซอร์</p>
+            <p className="mb-1 text-xs font-bold uppercase tracking-widest text-teal-100">POWERED BY LANGMIND AGENT STUDIO</p>
+            <h2 className="text-2xl font-extrabold">LangMind AI</h2>
+            <p className="mt-2 max-w-xl text-sm leading-7 text-white/85">ผู้ช่วย AI ที่ให้บริการผ่านแพลตฟอร์ม LangMind เชื่อมต่ออย่างปลอดภัยด้วย Supabase Edge Function</p>
           </div>
         </div>
-        <a href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/50 bg-white/10 px-4 py-3 text-sm font-bold text-white hover:bg-white/20">เปิดแชท LANGMIND ภายนอก <ExternalLink size={16}/></a>
+        <a href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/50 bg-white/10 px-4 py-3 text-sm font-bold text-white hover:bg-white/20">เปิดแชทบน LangMind <ExternalLink size={16}/></a>
       </div>
     </section>
 
     <div className="grid items-start gap-5 xl:grid-cols-[minmax(320px,0.85fr)_minmax(0,1.15fr)]">
       <section className="panel p-5 md:p-6">
-        <div className="mb-5 flex items-center gap-2"><BookOpen className="text-teal-600" size={21}/><h2 className="text-lg font-extrabold">ส่งบทเรียนให้ AI</h2></div>
+        <div className="mb-5 flex items-center gap-2"><BookOpen className="text-teal-600" size={21}/><h2 className="text-lg font-extrabold">ส่งบทเรียนให้ LangMind AI</h2></div>
         <p className="mb-4 text-sm leading-6 text-slate-500 dark:text-slate-400">วางข้อความหรือส่งจากหน้า “บทเรียนของฉัน” แล้วเลือกสิ่งที่ต้องการให้ AI ช่วย</p>
         <label className="mb-2 block text-sm font-semibold" htmlFor="ai-lesson-title">ชื่อบทเรียน (ไม่บังคับ)</label>
         <input id="ai-lesson-title" className="input mb-4" maxLength={100} value={lessonTitle} onChange={e=>setLessonTitle(e.target.value)} placeholder="เช่น การออกแบบอัลกอริทึม"/>
@@ -223,24 +223,24 @@ function LangMindAgentPage() {
         <div className="mt-5 space-y-2" role="group" aria-label="เลือกรูปแบบการช่วยเรียนรู้">
           {AGENT_TASKS.map(item=><button type="button" key={item.id} aria-pressed={task===item.id} onClick={()=>setTask(item.id)} className={`w-full rounded-xl border p-3 text-left transition ${task===item.id?'border-teal-600 bg-teal-50 dark:bg-teal-900/25':'border-slate-200 hover:border-teal-300 dark:border-slate-700'}`}><span className="block text-sm font-bold">{item.title}</span><span className="block text-xs leading-6 text-slate-500 dark:text-slate-400">{item.detail}</span></button>)}
         </div>
-        <button type="button" className="btn-primary mt-5 w-full justify-center" disabled={working || !transcript.trim()} onClick={sendTask}><Sparkles size={17}/> {working?'กำลังประมวลผล...':'ส่งบทเรียนให้ AI'}</button>
+        <button type="button" className="btn-primary mt-5 w-full justify-center" disabled={working || !transcript.trim()} onClick={sendTask}><Sparkles size={17}/> {working?'LangMind AI กำลังประมวลผล...':'ส่งบทเรียนให้ LangMind AI'}</button>
         <button type="button" className="btn-outline mt-3 w-full justify-center" onClick={()=>navigate('/lessons')}><BookOpen size={16}/>เลือกบทเรียนที่บันทึกไว้</button>
         <p className="mt-4 text-xs leading-6 text-slate-500 dark:text-slate-400">โปรดตรวจสอบข้อมูลส่วนบุคคลและขออนุญาตก่อนส่งข้อความบทเรียนไปประมวลผลกับ AI</p>
       </section>
 
       <section className="panel flex min-h-[620px] flex-col overflow-hidden">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4 dark:border-slate-800">
-          <div className="flex items-center gap-2 font-extrabold"><MessageCircle size={20} className="text-teal-600"/>แชทกับ HearMind AI</div>
+          <div className="flex items-center gap-2 font-extrabold"><MessageCircle size={20} className="text-teal-600"/>แชทกับ LangMind AI</div>
           <button type="button" className="btn-outline !px-3 !py-2" disabled={working} onClick={newChat} title="ล้างแชทและเริ่มบทสนทนาใหม่"><Plus size={16}/>แชทใหม่</button>
         </div>
         <div ref={listRef} role="log" aria-live="polite" aria-relevant="additions" className="min-h-[360px] max-h-[570px] flex-1 space-y-5 overflow-y-auto bg-slate-50/40 p-5 dark:bg-slate-900/25">
           {messages.length===0&&<div className="flex min-h-72 flex-col items-center justify-center text-center"><span className="mb-4 rounded-2xl bg-teal-50 p-5 text-teal-600 dark:bg-teal-900/30"><Sparkles size={32}/></span><h3 className="mb-2 font-extrabold">พร้อมช่วยทำความเข้าใจบทเรียน</h3><p className="max-w-sm text-sm leading-7 text-slate-500 dark:text-slate-400">ส่งบทเรียนด้านซ้าย หรือพิมพ์คำถามด้านล่างเพื่อเริ่มสนทนา</p></div>}
-          {messages.map(item=><div key={item.id} className={`flex ${item.role==='user'?'justify-end':'justify-start'}`}><div className={`max-w-[94%] rounded-2xl p-4 text-sm leading-7 shadow-sm ${item.role==='user'?'bg-teal-700 text-white':'border border-slate-200 bg-white text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100'}`}><div className="mb-2 text-xs font-extrabold opacity-80">{item.role==='user'?'คุณ':'HearMind AI'}</div><p className="whitespace-pre-wrap break-words">{item.content}</p>{item.sources&&item.sources.length>0&&<p className="mt-3 border-t border-current/20 pt-2 text-xs opacity-75">เอกสารอ้างอิง: {item.sources.join(', ')}</p>}</div></div>)}
-          {working&&<div className="flex items-center gap-2 text-sm text-teal-700 dark:text-teal-300"><LoaderCircle className="animate-spin" size={17}/>HearMind AI กำลังตอบ...</div>}
+          {messages.map(item=><div key={item.id} className={`flex ${item.role==='user'?'justify-end':'justify-start'}`}><div className={`max-w-[94%] rounded-2xl p-4 text-sm leading-7 shadow-sm ${item.role==='user'?'bg-teal-700 text-white':'border border-slate-200 bg-white text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100'}`}><div className="mb-2 text-xs font-extrabold opacity-80">{item.role==='user'?'คุณ':'LangMind AI'}</div><p className="whitespace-pre-wrap break-words">{item.content}</p>{item.sources&&item.sources.length>0&&<p className="mt-3 border-t border-current/20 pt-2 text-xs opacity-75">เอกสารอ้างอิง: {item.sources.join(', ')}</p>}</div></div>)}
+          {working&&<div className="flex items-center gap-2 text-sm text-teal-700 dark:text-teal-300"><LoaderCircle className="animate-spin" size={17}/>LangMind AI กำลังตอบ...</div>}
         </div>
         <div className="border-t border-slate-200 p-4 dark:border-slate-800">
           {notice&&<div role="status" className="mb-3 rounded-lg bg-amber-50 p-3 text-sm leading-6 text-amber-800 dark:bg-amber-900/20 dark:text-amber-200">{notice}</div>}
-          <label htmlFor="ai-chat-input" className="sr-only">พิมพ์คำถามถึง HearMind AI</label>
+          <label htmlFor="ai-chat-input" className="sr-only">พิมพ์คำถามถึง LangMind AI</label>
           <textarea id="ai-chat-input" rows={3} maxLength={8000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void send(draft,true)}}} className="input w-full resize-y text-sm leading-7" placeholder="พิมพ์คำถามที่ต้องการถามต่อ... (Enter เพื่อส่ง, Shift+Enter เพื่อขึ้นบรรทัดใหม่)"/>
           <div className="mt-3 flex items-center justify-between gap-3"><span className="text-xs text-slate-500">{conversation?'สนทนาต่อเนื่องในแชทนี้':'บทสนทนาใหม่'} · ประวัติแชทไม่ถูกเก็บใน localStorage</span><button type="button" className="btn-primary" disabled={working||!draft.trim()} onClick={()=>void send(draft,true)}><Send size={16}/>ส่งคำถาม</button></div>
           <p className="mt-3 text-xs leading-6 text-slate-500 dark:text-slate-400">AI อาจตอบคลาดเคลื่อน โปรดตรวจสอบข้อมูลสำคัญก่อนนำไปใช้</p>
@@ -318,7 +318,7 @@ function Lessons() {
       return;
     }
     const prompt = [
-      'คุณคือ HearMind AI ผู้ช่วยการเรียนรู้',
+      'คุณคือผู้ช่วยการเรียนรู้บนแพลตฟอร์ม LangMind AI',
       `หัวข้อบทเรียน: ${lesson.title}`,
       '',
       'ข้อความถอดเสียงจากบทเรียน (อาจมีคำผิด):',
@@ -329,7 +329,7 @@ function Lessons() {
     ].join('\n');
     try {
       await navigator.clipboard.writeText(prompt);
-      setAiNotice('คัดลอกข้อความแล้ว — เปิด LANGMIND และวางข้อความในแชท HearMind AI v4 ได้เลย');
+      setAiNotice('คัดลอกข้อความแล้ว — เปิด LangMind AI แล้ววางข้อความในแชทได้เลย');
     } catch {
       setAiNotice('คัดลอกไม่สำเร็จ โปรดลองบน localhost หรือ HTTPS และอนุญาต Clipboard');
     }
@@ -388,14 +388,14 @@ function Lessons() {
       </p>
     </div>
   );
-}return <><Title eyebrow="My lessons" title="บทเรียนของฉัน" description="ดูบทเรียนที่บันทึกไว้ใน Supabase ดาวน์โหลดเป็นไฟล์ข้อความ หรือนำข้อความไปใช้กับ HearMind AI Agent"/>{cloudError && (
+}return <><Title eyebrow="My lessons" title="บทเรียนของฉัน" description="ดูบทเรียนที่บันทึกไว้ใน Supabase ดาวน์โหลดเป็นไฟล์ข้อความ หรือนำข้อความไปใช้กับ LangMind AI"/>{cloudError && (
   <div
     role="alert"
     className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"
   >
     {cloudError}
   </div>
-)}{lessons.length===0?<div className="panel flex min-h-72 flex-col items-center justify-center p-8 text-center"><BookOpen className="mb-4 text-teal-600" size={42}/><h2 className="mb-2 font-bold">ยังไม่มีบทเรียนที่บันทึกไว้</h2><p className="mb-5 text-sm text-slate-500">เริ่มไมโครโฟนหรือทดลองข้อความตัวอย่างแล้วกดบันทึกบทเรียน</p><NavLink className="btn-primary" to="/live">เริ่มคำบรรยาย <ArrowRight size={16}/></NavLink></div>:<div className="grid gap-5 lg:grid-cols-[340px_1fr]"><div className="space-y-3">{lessons.map(x=><button key={x.id} onClick={()=>{setSelected(x.id);setAiNotice('')}} className={`panel w-full p-4 text-left transition hover:border-teal-400 ${selected===x.id?'!border-teal-500':''}`}><div className="mb-2 font-bold">{x.title}</div><div className="flex items-center gap-2 text-xs text-slate-500"><Clock size={14}/>{new Date(x.date).toLocaleString('th-TH')} · {x.segments.length} ข้อความ</div></button>)}</div><div className="panel min-h-72 p-6">{active?<><div className="mb-5 flex flex-wrap items-center justify-between gap-3"><h2 className="text-lg font-bold">{active.title}</h2><div className="flex gap-2"><button className="btn-outline !px-3 !py-2" onClick={()=>downloadText(`hearmind-${active.id.slice(0,8)}.txt`,active.segments.map(x=>x.text).join('\n'))}><Download size={16}/>TXT</button><button className="btn-primary !px-3 !py-2" onClick={()=>openLessonInAI(active)}><Sparkles size={16}/>ส่งไปแชท AI</button><button className="btn-outline !px-3 !py-2" onClick={()=>copyForLangMind(active)}><BookOpen size={16}/>คัดลอกเพื่อถาม AI</button><button className="btn-outline !px-3 !py-2 !text-rose-600" 
+)}{lessons.length===0?<div className="panel flex min-h-72 flex-col items-center justify-center p-8 text-center"><BookOpen className="mb-4 text-teal-600" size={42}/><h2 className="mb-2 font-bold">ยังไม่มีบทเรียนที่บันทึกไว้</h2><p className="mb-5 text-sm text-slate-500">เริ่มไมโครโฟนหรือทดลองข้อความตัวอย่างแล้วกดบันทึกบทเรียน</p><NavLink className="btn-primary" to="/live">เริ่มคำบรรยาย <ArrowRight size={16}/></NavLink></div>:<div className="grid gap-5 lg:grid-cols-[340px_1fr]"><div className="space-y-3">{lessons.map(x=><button key={x.id} onClick={()=>{setSelected(x.id);setAiNotice('')}} className={`panel w-full p-4 text-left transition hover:border-teal-400 ${selected===x.id?'!border-teal-500':''}`}><div className="mb-2 font-bold">{x.title}</div><div className="flex items-center gap-2 text-xs text-slate-500"><Clock size={14}/>{new Date(x.date).toLocaleString('th-TH')} · {x.segments.length} ข้อความ</div></button>)}</div><div className="panel min-h-72 p-6">{active?<><div className="mb-5 flex flex-wrap items-center justify-between gap-3"><h2 className="text-lg font-bold">{active.title}</h2><div className="flex gap-2"><button className="btn-outline !px-3 !py-2" onClick={()=>downloadText(`hearmind-${active.id.slice(0,8)}.txt`,active.segments.map(x=>x.text).join('\n'))}><Download size={16}/>TXT</button><button className="btn-primary !px-3 !py-2" onClick={()=>openLessonInAI(active)}><Sparkles size={16}/>ส่งไปแชท LangMind AI</button><button className="btn-outline !px-3 !py-2" onClick={()=>copyForLangMind(active)}><BookOpen size={16}/>คัดลอกเพื่อถาม AI</button><button className="btn-outline !px-3 !py-2 !text-rose-600" 
 onClick={async () => {
   if (!window.confirm("ยืนยันลบบทเรียนนี้อย่างถาวรหรือไม่?")) {
     return;
@@ -420,64 +420,7 @@ onClick={async () => {
     );
   }
 }}
-><Trash2 size={16}/>ลบ</button></div></div><div className="space-y-4">{active.segments.map(s=><p key={s.id} className="border-l-2 border-teal-500 pl-4 text-sm leading-8">{s.text}</p>)}</div>{aiNotice&&<div role="status" className="mt-5 rounded-xl border border-teal-200 bg-teal-50 p-3 text-sm leading-6 text-teal-800 dark:border-teal-900 dark:bg-teal-900/20 dark:text-teal-200">{aiNotice}<div className="mt-2"><a href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline">เปิด HearMind AI Agent v4 ใน LANGMIND</a></div></div>}</>:<div className="flex min-h-64 items-center justify-center text-sm text-slate-500">เลือกบทเรียนทางด้านซ้ายเพื่อดูรายละเอียด</div>}</div></div>}<p className="mt-5 text-xs leading-6 text-slate-500">สามารถส่งบทเรียนเข้าแชทภายในเว็บไซต์ผ่าน LANGMIND API ได้โดยตรง หรือใช้วิธีคัดลอกไปวางใน LANGMIND ภายนอก · ควรตรวจสอบข้อมูลส่วนบุคคลก่อนส่งให้ AI</p></>}
+><Trash2 size={16}/>ลบ</button></div></div><div className="space-y-4">{active.segments.map(s=><p key={s.id} className="border-l-2 border-teal-500 pl-4 text-sm leading-8">{s.text}</p>)}</div>{aiNotice&&<div role="status" className="mt-5 rounded-xl border border-teal-200 bg-teal-50 p-3 text-sm leading-6 text-teal-800 dark:border-teal-900 dark:bg-teal-900/20 dark:text-teal-200">{aiNotice}<div className="mt-2"><a href={LANGMIND_AGENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline">เปิดแชท LangMind AI บนเว็บไซต์ LangMind</a></div></div>}</>:<div className="flex min-h-64 items-center justify-center text-sm text-slate-500">เลือกบทเรียนทางด้านซ้ายเพื่อดูรายละเอียด</div>}</div></div>}<p className="mt-5 text-xs leading-6 text-slate-500">สามารถส่งบทเรียนให้ LangMind AI ภายในเว็บไซต์ได้โดยตรง หรือเลือกเปิดแชทบนแพลตฟอร์ม LangMind · ควรตรวจสอบข้อมูลส่วนบุคคลก่อนส่งให้ AI</p></>}
 
-// Diagnostic: test the authenticated Edge Function and LANGMIND API without sending saved lessons.
-function AgentConnectionTest() {
-  const [testing,setTesting] = useState(false);
-  const [result,setResult] = useState('');
-
-  const run = async () => {
-    setTesting(true);
-    setResult('กำลังตรวจสอบการเชื่อมต่อ...');
-    try {
-      await ensureAnonymousAuth();
-      if (!supabase) throw new Error('ยังไม่ได้ตั้งค่า Supabase');
-      const {data:{session}} = await supabase.auth.getSession();
-      if (!session?.access_token) throw new Error('ไม่พบ Supabase access token ของผู้ใช้');
-
-      const {data,error} = await supabase.functions.invoke('hearmind-agent', {
-        body: {message: 'ทดสอบการเชื่อมต่อจากเว็บไซต์ HearMind AI'},
-        headers: {Authorization: `Bearer ${session.access_token}`},
-      });
-
-      if (error) {
-        const response = error.context instanceof Response ? error.context : null;
-        const payload = response
-          ? await response.clone().json().catch(() => null)
-          : null;
-        if (response?.status === 503 && payload?.ready === false) {
-          setResult('✅ เชื่อมต่อถึง Edge Function และผ่านการตรวจสอบผู้ใช้แล้ว (HTTP 503 ตามที่กำหนดไว้ เพราะยังไม่เปิด LangMind API)');
-        } else if (response?.status === 401 || response?.status === 403) {
-          setResult(`⚠️ HTTP ${response.status}: ระบบยืนยันตัวตนยังไม่ผ่าน ต้องตรวจสอบ JWT และการตั้งค่า Edge Function`);
-        } else {
-          setResult(`⚠️ เรียกฟังก์ชันไม่สำเร็จ${response ? ` (HTTP ${response.status})` : ''}: ${error.message}`);
-        }
-        return;
-      }
-
-      if (data?.ready === true && typeof data.answer === 'string' && data.answer.trim()) {
-        setResult('✅ เชื่อม Supabase Edge Function และ LANGMIND API สำเร็จ ได้รับคำตอบจาก HearMind AI แล้ว');
-      } else if (data?.ready === false) {
-        setResult('⚠️ Edge Function ยังไม่เปิดใช้งาน LANGMIND API');
-      } else {
-        setResult('⚠️ Edge Function ตอบกลับแล้ว แต่รูปแบบคำตอบไม่ตรงกับที่คาดหวัง กรุณาตรวจสอบ Response');
-      }
-    } catch (e) {
-      setResult(`⚠️ ${e instanceof Error ? e.message : 'เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ'}`);
-    } finally {
-      setTesting(false);
-    }
-  };
-
-  return <section className="panel mt-5 p-6">
-    <h2 className="mb-2 flex items-center gap-2 font-bold"><ShieldCheck size={18} className="text-teal-600"/>ทดสอบ Edge Function (Phase 4)</h2>
-    <p className="mb-4 text-sm leading-7 text-slate-500 dark:text-slate-400">ทดสอบส่งข้อความตัวอย่างผ่าน Supabase Edge Function ไปยัง LANGMIND API โดยไม่ส่งบทเรียนที่บันทึกไว้</p>
-    <button className="btn-primary" onClick={run} disabled={testing}>
-      {testing ? 'กำลังทดสอบ...' : 'ทดสอบการเชื่อมต่อ Supabase'}
-    </button>
-    {result && <p role="status" className="mt-4 rounded-xl bg-slate-100 p-4 text-sm leading-7 text-slate-800 dark:bg-slate-800 dark:text-slate-100">{result}</p>}
-  </section>;
-}
-function SettingsPage({theme,setTheme}:{theme:Theme,setTheme:(t:Theme)=>void}){return <><Title eyebrow="Preferences" title="การตั้งค่า" description="ปรับรูปแบบการแสดงผลและตรวจสอบข้อจำกัดของระบบต้นแบบ"/><div className="grid gap-5 lg:grid-cols-2"><section className="panel p-6"><h2 className="mb-5 flex items-center gap-2 font-bold"><Monitor size={19} className="text-teal-600"/>Adaptive Theme</h2><div className="space-y-3">{([{v:'system',name:'ตามอุปกรณ์',icon:Monitor},{v:'light',name:'โหมดสว่าง',icon:Sun},{v:'dark',name:'โหมดมืด',icon:Moon}] as const).map(({v,name,icon:Icon})=><button key={v} onClick={()=>setTheme(v)} className={`flex w-full items-center justify-between rounded-xl border p-4 text-left ${theme===v?'border-teal-500 bg-teal-50 dark:bg-teal-900/20':'border-slate-200 dark:border-slate-700'}`}><span className="flex items-center gap-3 text-sm font-semibold"><Icon size={19}/>{name}</span>{theme===v&&<Check size={18} className="text-teal-600"/>}</button>)}</div></section><section className="panel p-6"><h2 className="mb-5 flex items-center gap-2 font-bold"><Keyboard size={19} className="text-teal-600"/>การเข้าถึง</h2><ul className="space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300"><li>• เพิ่มหรือลดขนาดข้อความคำบรรยายได้ที่หน้ารับเสียง</li><li>• ปุ่มและเมนูรองรับการใช้งานด้วยคีย์บอร์ด</li><li>• แสดงสถานะไมโครโฟนด้วยข้อความร่วมกับสี</li><li>• มีการแสดงข้อความชั่วคราวระหว่างประมวลผล</li></ul></section></div><div className="panel mt-5 p-6"><h2 className="mb-3 font-bold">สถานะการพัฒนา</h2><div className="grid gap-3 text-sm md:grid-cols-2"><div className="rounded-xl bg-teal-50 p-4 text-teal-800 dark:bg-teal-900/20 dark:text-teal-200">✓ คำบรรยายภาษาไทยบนอุปกรณ์ปัจจุบัน</div><div className="rounded-xl bg-teal-50 p-4 text-teal-800 dark:bg-teal-900/20 dark:text-teal-200">✓ บันทึกและส่งออกข้อความในเครื่อง</div><div className="rounded-xl bg-teal-50 p-4 text-teal-800 dark:bg-teal-900/20 dark:text-teal-200">✓ ห้องเรียนออนไลน์แบบหลายอุปกรณ์</div><div className="rounded-xl bg-teal-50 p-4 text-teal-800 dark:bg-teal-900/20 dark:text-teal-200">✓ เชื่อมต่อ LANGMIND AI Agent ผ่าน API</div></div></div><AgentConnectionTest/></>}
+function SettingsPage({theme,setTheme}:{theme:Theme,setTheme:(t:Theme)=>void}){return <><Title eyebrow="Preferences" title="การตั้งค่า" description="ปรับรูปแบบการแสดงผลและการเข้าถึงของเว็บไซต์"/><div className="grid gap-5 lg:grid-cols-2"><section className="panel p-6"><h2 className="mb-5 flex items-center gap-2 font-bold"><Monitor size={19} className="text-teal-600"/>Adaptive Theme</h2><div className="space-y-3">{([{v:'system',name:'ตามอุปกรณ์',icon:Monitor},{v:'light',name:'โหมดสว่าง',icon:Sun},{v:'dark',name:'โหมดมืด',icon:Moon}] as const).map(({v,name,icon:Icon})=><button key={v} onClick={()=>setTheme(v)} className={`flex w-full items-center justify-between rounded-xl border p-4 text-left ${theme===v?'border-teal-500 bg-teal-50 dark:bg-teal-900/20':'border-slate-200 dark:border-slate-700'}`}><span className="flex items-center gap-3 text-sm font-semibold"><Icon size={19}/>{name}</span>{theme===v&&<Check size={18} className="text-teal-600"/>}</button>)}</div></section><section className="panel p-6"><h2 className="mb-5 flex items-center gap-2 font-bold"><Keyboard size={19} className="text-teal-600"/>การเข้าถึง</h2><ul className="space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300"><li>• เพิ่มหรือลดขนาดข้อความคำบรรยายได้ที่หน้ารับเสียง</li><li>• ปุ่มและเมนูรองรับการใช้งานด้วยคีย์บอร์ด</li><li>• แสดงสถานะไมโครโฟนด้วยข้อความร่วมกับสี</li><li>• มีการแสดงข้อความชั่วคราวระหว่างประมวลผล</li></ul></section></div></>}
 export default function App(){const {theme,setTheme}=useTheme();return <Shell theme={theme} setTheme={setTheme}><Routes><Route path="/" element={<Dashboard/>}/><Route path="/live" element={<Captions source="teacher"/>}/><Route path="/classroom" element={<ClassroomHome/>}/><Route path="/classroom/:id" element={<ClassroomRoom/>}/><Route path="/personal" element={<Captions source="student"/>}/><Route path="/lessons" element={<Lessons/>}/><Route path="/agent" element={<LangMindAgentPage/>}/><Route path="/settings" element={<SettingsPage theme={theme} setTheme={setTheme}/>}/><Route path="*" element={<div className="panel p-10 text-center"><h1 className="mb-3 text-2xl font-bold">ไม่พบหน้านี้</h1><NavLink to="/" className="btn-primary">กลับหน้าหลัก</NavLink></div>}/></Routes></Shell>}
